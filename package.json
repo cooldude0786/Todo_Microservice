@@ -1,0 +1,25 @@
+{
+  "name": "todo-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -n \"auth,create,read,update,delete,gateway\" -c \"blue,green,yellow,magenta,cyan,white\" \"pnpm run dev:auth\" \"pnpm run dev:create\" \"pnpm run dev:read\" \"pnpm run dev:update\" \"pnpm run dev:delete\" \"pnpm run dev:gateway\"",
+    "dev:frontend": "pnpm --filter frontend dev",
+    "dev:auth": "pnpm --filter auth-service dev",
+    "dev:create": "pnpm --filter todo-create-service dev",
+    "dev:read": "pnpm --filter todo-read-service dev",
+    "dev:update": "pnpm --filter todo-update-service dev",
+    "dev:delete": "pnpm --filter todo-delete-service dev",
+    "dev:ai": "pnpm --filter ai-service dev",
+    "dev:gateway": "pnpm --filter api-gateway dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.22.0",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

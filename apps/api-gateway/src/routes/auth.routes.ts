@@ -1,19 +1,11 @@
-import { Router, Request, Response } from 'express'
-import { proxyRequest } from '../utils/proxy.js'
-await process.loadEnvFile();
-const router: Router = Router()
-const AUTH_SERVICE = process.env.AUTH_SERVICE_URL!
+import express, { Router } from 'express'
+import { register, login, verify } from '../controllers/auth.controllers.js'
+import { authenticateToken } from '../middleware/auth.middleware.js'
 
-router.post('/register', (req: Request, res: Response) => {
-  proxyRequest(req, res, AUTH_SERVICE, '/api/auth')
-})
+const router: Router = express.Router()
 
-router.post('/login', (req: Request, res: Response) => {
-  proxyRequest(req, res, AUTH_SERVICE, '/api/auth')
-})
-
-router.get('/verify', (req: Request, res: Response) => {
-  proxyRequest(req, res, AUTH_SERVICE, '/api/auth')
-})
+router.post('/register', register)
+router.post('/login', login)
+router.get('/verify', authenticateToken, verify)
 
 export default router

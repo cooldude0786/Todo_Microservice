@@ -5,21 +5,26 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "dev": "concurrently -n \"auth,create,read,update,delete,gateway\" -c \"blue,green,yellow,magenta,cyan,white\" \"pnpm run dev:auth\" \"pnpm run dev:create\" \"pnpm run dev:read\" \"pnpm run dev:update\" \"pnpm run dev:delete\" \"pnpm run dev:gateway\"",
+    "build": "turbo run build",
+    "dev": "concurrently \"pnpm --filter api-gateway dev\" \"pnpm --filter frontend dev\" \"pnpm --filter ai-service dev\"",
+    "dev:all": "pnpm run dev",
+    "lint": "turbo run lint",
+    "clean": "turbo run clean && rimraf node_modules",
+    "db:generate": "pnpm --filter @todo-app/shared db:generate",
+    "db:push": "pnpm --filter @todo-app/shared db:push",
+    "db:migrate": "pnpm --filter @todo-app/shared db:migrate",
+    "db:studio": "pnpm --filter @todo-app/shared db:studio",
     "dev:frontend": "pnpm --filter frontend dev",
-    "dev:auth": "pnpm --filter auth-service dev",
-    "dev:create": "pnpm --filter todo-create-service dev",
-    "dev:read": "pnpm --filter todo-read-service dev",
-    "dev:update": "pnpm --filter todo-update-service dev",
-    "dev:delete": "pnpm --filter todo-delete-service dev",
-    "dev:ai": "pnpm --filter ai-service dev",
-    "dev:gateway": "pnpm --filter api-gateway dev"
+    "dev:api": "pnpm --filter api-gateway dev",
+    "dev:ai": "pnpm --filter ai-service dev"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.22.0",
   "devDependencies": {
-    "concurrently": "^9.2.1"
+    "concurrently": "^9.2.1",
+    "rimraf": "^6.1.2",
+    "turbo": "^2.7.6"
   }
 }

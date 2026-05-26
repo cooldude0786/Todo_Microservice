@@ -1,0 +1,25 @@
+{
+  "name": "ai-service",
+  "version": "1.0.0",
+  "description": "AI Service for Todo App",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.0.1",
+    "dotenv": "^16.4.7"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.14.12",
+    "typescript": "^5.6.3",
+    "tsx": "^4.19.2"
+  }
+}

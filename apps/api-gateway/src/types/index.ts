@@ -26,6 +26,7 @@ export interface CreateTodoDto {
   priority?: string
   dueDate?: string
   aiGenerated?: boolean
+  groupId?: string | null
 }
 
 export interface UpdateTodoDto {
@@ -34,4 +35,13 @@ export interface UpdateTodoDto {
   completed?: boolean
   priority?: string
   dueDate?: string
+  groupId?: string | null
+}
+
+export interface CreateGroupDto {
+  name: string
+}
+
+export interface UpdateGroupDto {
+  name?: string
 }

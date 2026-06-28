@@ -8,4 +8,5 @@ Current implemented contract surfaces:
 
 Current note:
 - Gateway todo contract is on `/api/todos`.
-- Frontend internal task routes currently proxy `/api/tasks`.
+- Gateway group contract is on `/api/groups`.
+- Frontend internal task routes proxy to `/api/todos` at the gateway.

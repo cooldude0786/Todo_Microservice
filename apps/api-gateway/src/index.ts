@@ -3,6 +3,7 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 import authRoutes from './routes/auth.routes.js'
 import todoRoutes from './routes/todo.routes.js'
+import groupRoutes from './routes/group.routes.js'
 import {
   errorHandler,
   notFoundHandler,
@@ -28,6 +29,7 @@ app.get('/health', (_req, res) => {
 
 app.use('/api/auth', authRoutes)
 app.use('/api/todos', todoRoutes)
+app.use('/api/groups', groupRoutes)
 
 app.use(notFoundHandler)
 app.use(errorHandler)

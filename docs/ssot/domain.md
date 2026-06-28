@@ -12,3 +12,10 @@ Current implemented domain signals in code:
   - max length 1000
 - Todo ownership rule:
   - todo operations are scoped to authenticated `userId`.
+- Group domain signals:
+  - group `name` is required, trimmed, max length 100.
+  - group names are unique per user.
+  - group operations are scoped to authenticated `userId`.
+- Todo-to-group rule:
+  - `groupId` is optional on todos (`null` means ungrouped).
+  - if `groupId` is provided on create/update, it must belong to the same authenticated user.

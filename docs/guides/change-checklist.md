@@ -13,6 +13,7 @@ Use this checklist before marking a feature/API change done.
 - [ ] Prisma schema updated if needed
 - [ ] Prisma client regenerated if schema changed
 - [ ] DB changes validated with test data
+- [ ] Existing records remain valid after schema changes (non-breaking/additive)
 
 ## Authentication
 
@@ -25,6 +26,7 @@ Use this checklist before marking a feature/API change done.
 - [ ] Manual happy-path test passed
 - [ ] Manual error-path test passed
 - [ ] Relevant health endpoints respond
+- [ ] Existing list/read flows still return backward-compatible response shape
 
 ## Documentation
 

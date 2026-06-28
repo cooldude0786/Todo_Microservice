@@ -11,6 +11,10 @@ Specify:
 - Auth requirement
 - Error cases
 
+Compatibility requirement:
+- Existing endpoint defaults must remain backward compatible.
+- New behavior should be introduced through optional fields/query params or separate endpoints.
+
 ## 2. Choose Service Location
 
 Current options:
@@ -42,6 +46,9 @@ If schema changes are needed:
 1. edit `packages/shared/prisma/schema.prisma`
 2. run `pnpm db:generate`
 3. run `pnpm db:push` (or migration flow)
+
+Schema safety rule:
+- Prefer additive changes (new model, nullable relation field) to avoid conflicts with existing records.
 
 ## 5. Connect Frontend
 

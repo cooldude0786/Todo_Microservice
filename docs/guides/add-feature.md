@@ -24,11 +24,16 @@ Keep this short and testable.
 1. Update Prisma schema:
 - `packages/shared/prisma/schema.prisma`
 
-2. Run:
+2. Apply non-breaking schema rules:
+- Prefer adding new models/optional relation fields.
+- Avoid renaming/removing existing fields in the same feature rollout.
+- Ensure existing records remain valid without backfill failure.
+
+3. Run:
 - `pnpm db:generate`
 - `pnpm db:push` (or migrate flow if you are using migrations)
 
-3. Update API Gateway logic using the updated Prisma client.
+4. Update API Gateway logic using the updated Prisma client.
 
 ## 4. Backend Feature Flow (API Gateway)
 
@@ -43,6 +48,10 @@ Keep this short and testable.
 
 4. If auth required, use middleware:
 - `apps/api-gateway/src/middleware/auth.middleware.ts`
+
+5. Keep current contracts stable:
+- Do not change existing response shape by default.
+- Add new behavior via optional fields/query params or new endpoints.
 
 ## 5. Frontend Feature Flow
 

@@ -6,6 +6,8 @@ This file maps where service-level behavior is currently implemented in code.
   - `apps/api-gateway/src/controllers/auth.controllers.ts`
 - Todo behavior:
   - `apps/api-gateway/src/controllers/todo.controllers.ts`
+- Group behavior:
+  - `apps/api-gateway/src/controllers/group.controllers.ts`
 - AI behavior:
   - `apps/ai-service/src/index.ts` (`POST /api/ai/analyze` placeholder)
 

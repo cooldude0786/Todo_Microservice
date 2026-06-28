@@ -7,6 +7,7 @@ Use these guides when adding new work to this repository.
 1. [Add a New Feature](./add-feature.md)
 2. [Add a New API](./add-api.md)
 3. [End-to-End Change Checklist](./change-checklist.md)
+4. [Non-Breaking Change Rules](./non-breaking-changes.md)
 
 ## Documentation Mapping
 

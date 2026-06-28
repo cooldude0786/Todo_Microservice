@@ -17,6 +17,7 @@ This folder contains implementation-only source-of-truth docs for the current co
 11. [HTTP Surfaces](./http-surfaces.md)
 12. [Verified Mismatches](./mismatches.md)
 13. [Source References](./sources.md)
+14. [Task Grouping Status](./task-grouping.md)
 
 ## Scope Rule
 

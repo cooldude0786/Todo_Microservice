@@ -25,7 +25,7 @@ services:
     plan: free
     rootDir: apps/frontend
     buildCommand: |
-      cd ../.. && pnpm install --frozen-lockfile && pnpm --filter @todo-app/shared build && pnpm --filter frontend build
+      cd ../.. && pnpm install --frozen-lockfile && pnpm --filter frontend build
     startCommand: |
       pnpm exec next start -p $PORT
     envVars:
@@ -36,8 +36,8 @@ services:
       - key: NEXTAUTH_SECRET
         generateValue: true
       - key: NEXTAUTH_URL
-        value: https://todo-frontend.onrender.com
+        value: https://todo-frontend-8l7g.onrender.com
       - key: AUTH_TRUST_HOST
         value: true
       - key: NEXT_PUBLIC_API_BASE_URL
-        value: https://todo-api.onrender.com
+        value: https://todo-api-p1zd.onrender.com

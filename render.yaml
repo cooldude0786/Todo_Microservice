@@ -25,9 +25,9 @@ services:
     plan: free
     rootDir: apps/frontend
     buildCommand: |
-      cd ../.. && pnpm install --frozen-lockfile && pnpm --filter frontend build
+      pnpm install --frozen-lockfile && pnpm build
     startCommand: |
-      pnpm exec next start -p $PORT
+      pnpm start -- -p $PORT
     envVars:
       - key: NODE_ENV
         value: production

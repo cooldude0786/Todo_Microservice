@@ -192,14 +192,14 @@ export default function TaskPageClient() {
   }
 
   return (
-    <div className="w-full min-h-screen ">
+    <div className="w-full min-h-screen overflow-x-hidden">
       <GlassNavbar onToggleSidebar={toggleSidebar} onSearch={setSearchQuery} searchQuery={searchQuery} />
 
-      <div className="pt-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 gap-3 mb-6 md:gap-4 xl:grid-cols-4">
+      <div className="px-3 pt-4 sm:px-4 sm:pt-6 md:pt-20">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid grid-cols-2 gap-2 mb-4 sm:gap-3 sm:mb-6 md:gap-4 xl:grid-cols-4">
               <Card className="glass-card">
-                <CardHeader>
+                <CardHeader className="p-3 sm:p-6">
                   <CardTitle>Total tasks</CardTitle>
                   <CardDescription>
                     {selectedCollection
@@ -207,13 +207,13 @@ export default function TaskPageClient() {
                       : "All tasks in your workspace"}
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <div className="text-3xl font-semibold text-slate-900">{totalTasks}</div>
+                <CardContent className="p-3 pt-0 sm:p-6 sm:pt-0">
+                  <div className="text-2xl font-semibold text-slate-900 sm:text-3xl">{totalTasks}</div>
                 </CardContent>
               </Card>
 
               <Card className="glass-card">
-                <CardHeader>
+                <CardHeader className="p-3 sm:p-6">
                   <CardTitle>Completed</CardTitle>
                   <CardDescription>
                     {selectedCollection
@@ -221,13 +221,13 @@ export default function TaskPageClient() {
                       : "Tasks finished successfully"}
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <div className="text-3xl font-semibold text-slate-900">{completedTasks}</div>
+                <CardContent className="p-3 pt-0 sm:p-6 sm:pt-0">
+                  <div className="text-2xl font-semibold text-slate-900 sm:text-3xl">{completedTasks}</div>
                 </CardContent>
               </Card>
 
               <Card className="glass-card">
-                <CardHeader>
+                <CardHeader className="p-3 sm:p-6">
                   <CardTitle>Pending</CardTitle>
                   <CardDescription>
                     {selectedCollection
@@ -235,13 +235,13 @@ export default function TaskPageClient() {
                       : "Tasks waiting to be completed"}
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <div className="text-3xl font-semibold text-slate-900">{pendingTasks}</div>
+                <CardContent className="p-3 pt-0 sm:p-6 sm:pt-0">
+                  <div className="text-2xl font-semibold text-slate-900 sm:text-3xl">{pendingTasks}</div>
                 </CardContent>
               </Card>
 
               <Card className="glass-card">
-                <CardHeader>
+                <CardHeader className="p-3 sm:p-6">
                   <CardTitle>High priority</CardTitle>
                   <CardDescription>
                     {selectedCollection
@@ -249,19 +249,19 @@ export default function TaskPageClient() {
                       : "Urgent tasks that need attention"}
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <div className="text-3xl font-semibold text-slate-900">{highPriorityTasks}</div>
-                  <div className="mt-2 text-sm text-gray-500">Overdue: {overdueTasks}</div>
+                <CardContent className="p-3 pt-0 sm:p-6 sm:pt-0">
+                  <div className="text-2xl font-semibold text-slate-900 sm:text-3xl">{highPriorityTasks}</div>
+                  <div className="mt-1 text-xs text-gray-500 sm:mt-2 sm:text-sm">Overdue: {overdueTasks}</div>
                 </CardContent>
             </Card>
           </div>
 
-          <div className="flex flex-col items-center gap-6">
+          <div className="flex flex-col items-center gap-4 sm:gap-6">
             <TaskFeild onTaskCreated={refreshTodos} groups={groups} onGroupCreated={handleGroupCreated} />
 
             {filteredTodos.length === 0 && searchQuery ? (
               <div className="text-center py-8">
-                <p className="text-gray-500">
+                <p className="text-gray-500 text-sm sm:text-base">
                   No tasks found
                   {selectedCollection === "general"
                     ? " in General"

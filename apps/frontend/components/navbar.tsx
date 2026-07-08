@@ -13,7 +13,7 @@ interface GlassNavbarProps {
 export function GlassNavbar({ onSearch, searchQuery = "", onToggleSidebar }: GlassNavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [localSearchQuery, setLocalSearchQuery] = useState(searchQuery)
-  const { data: session, status } = useSession()
+  const { data: session } = useSession()
   const router = useRouter()
 
   useEffect(() => {
@@ -44,21 +44,21 @@ export function GlassNavbar({ onSearch, searchQuery = "", onToggleSidebar }: Gla
         ? "bg-white/80 backdrop-blur-md shadow-lg"
         : "bg-white/60 backdrop-blur-sm"
     }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+      <div className="mx-auto w-full max-w-7xl px-3 sm:px-6 lg:px-8">
+        <div className="flex flex-wrap items-center gap-2 py-3 md:flex-nowrap md:justify-between md:h-16 md:py-0">
           {/* Sidebar toggle + Logo/Home */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 shrink-0">
             <button
               type="button"
               onClick={onToggleSidebar}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-gray-200 bg-white text-gray-700 shadow-sm transition hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-gray-200 bg-white text-gray-700 shadow-sm transition hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               <Menu className="h-5 w-5" />
               <span className="sr-only">Toggle sidebar</span>
             </button>
             <button
               onClick={() => router.push("/")}
-              className="flex items-center space-x-2 text-gray-900 hover:text-blue-600 transition-colors"
+              className="flex items-center space-x-2 text-gray-900 hover:text-blue-600 transition-colors whitespace-nowrap"
             >
               <Home className="h-6 w-6" />
               <span className="font-semibold text-lg">TodoApp</span>
@@ -66,7 +66,7 @@ export function GlassNavbar({ onSearch, searchQuery = "", onToggleSidebar }: Gla
           </div>
 
           {/* Search Bar */}
-          <div className="flex-1 max-w-md mx-8">
+          <div className="w-full min-w-0 md:flex-1 md:max-w-md md:mx-8">
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <Search className="h-5 w-5 text-gray-400" />
@@ -82,7 +82,7 @@ export function GlassNavbar({ onSearch, searchQuery = "", onToggleSidebar }: Gla
           </div>
 
           {/* User Menu */}
-          <div className="flex items-center space-x-4">
+          <div className="hidden items-center space-x-4 md:flex shrink-0">
             <div className="flex items-center space-x-2">
               <User className="h-5 w-5 text-gray-600" />
               <span className="text-sm text-gray-700 font-medium">

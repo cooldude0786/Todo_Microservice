@@ -11,13 +11,13 @@ export default function DashboardLayout({
 }) {
   return (
     <ErrorBoundary>
-      <div className="flex min-h-screen w-full">
+      <div className="flex min-h-screen w-full overflow-x-hidden">
         <Suspense fallback={null}>
           <AppSidebar />
         </Suspense>
 
-        <main className="flex-1 px-6 py-5">
-          <div className="mx-auto w-full max-w-300">
+        <main className="flex-1 min-w-0 overflow-x-hidden">
+          <div className="mx-auto w-full max-w-7xl px-3 py-4 sm:px-4 sm:py-5">
             {children}
           </div>
         </main>

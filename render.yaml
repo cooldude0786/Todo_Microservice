@@ -29,11 +29,10 @@ services:
 
     buildCommand: |
       pnpm install --frozen-lockfile
-      pnpm --filter @todo-app/shared build
-      pnpm --filter frontend build
+      pnpm --dir apps/frontend build
 
     startCommand: |
-      pnpm --filter frontend start -- -p $PORT
+      pnpm --dir apps/frontend start -- -p $PORT
 
     envVars:
       - key: NODE_ENV

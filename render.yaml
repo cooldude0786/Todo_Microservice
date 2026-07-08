@@ -28,7 +28,9 @@ services:
     plan: free
     
     buildCommand: |
-      cd apps/frontend && pnpm install --frozen-lockfile && pnpm build
+      cd apps/frontend
+      pnpm install --frozen-lockfile
+      pnpm build
 
     startCommand: |
       cd apps/frontend && pnpm start -- -p $PORT

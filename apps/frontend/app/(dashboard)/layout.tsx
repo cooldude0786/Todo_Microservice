@@ -1,5 +1,6 @@
 'use client'
 
+import { Suspense } from "react";
 import { AppSidebar } from "@/components/app-sidebar";
 import { ErrorBoundary } from "@/components/error-boundary";
 
@@ -11,7 +12,9 @@ export default function DashboardLayout({
   return (
     <ErrorBoundary>
       <div className="flex min-h-screen w-full">
-        <AppSidebar />
+        <Suspense fallback={null}>
+          <AppSidebar />
+        </Suspense>
 
         <main className="flex-1 px-6 py-5">
           <div className="mx-auto w-full max-w-300">

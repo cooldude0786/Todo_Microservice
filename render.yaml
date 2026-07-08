@@ -6,6 +6,7 @@ services:
 
     buildCommand: |
       pnpm install --frozen-lockfile
+      pnpm --filter @todo-app/shared build
       pnpm --filter api-gateway build
 
     startCommand: |
@@ -28,6 +29,7 @@ services:
 
     buildCommand: |
       pnpm install --frozen-lockfile
+      pnpm --filter @todo-app/shared build
       pnpm --filter frontend build
 
     startCommand: |

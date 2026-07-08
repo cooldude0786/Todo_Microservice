@@ -28,12 +28,11 @@ services:
     plan: free
     
     buildCommand: |
-      cd apps/frontend
-      pnpm install --frozen-lockfile
-      pnpm build
+      pnpm --dir apps/frontend install --frozen-lockfile
+      pnpm --dir apps/frontend build
 
     startCommand: |
-      cd apps/frontend && pnpm start -- -p $PORT
+      pnpm --dir apps/frontend start -- -p $PORT
 
     envVars:
       - key: NODE_ENV

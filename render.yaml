@@ -3,41 +3,44 @@ services:
     name: todo-api
     env: node
     plan: free
-    rootDir: apps/api-gateway
+
     buildCommand: |
-      cd ../.. && pnpm install --frozen-lockfile && pnpm --filter @todo-app/shared build && pnpm --filter api-gateway build
+      pnpm install --frozen-lockfile
+      pnpm --filter api-gateway build
+
     startCommand: |
-      pnpm start
+      pnpm --filter api-gateway start
+
     healthCheckPath: /health
+
     envVars:
       - key: NODE_ENV
         value: production
-      - key: PORT
-        value: 10000
-      - key: JWT_SECRET
-        generateValue: true
       - key: DATABASE_URL
         sync: false
+      - key: JWT_SECRET
+        generateValue: true
 
   - type: web
     name: todo-frontend
     env: node
     plan: free
-    rootDir: apps/frontend
+
     buildCommand: |
-      pnpm install --frozen-lockfile && pnpm build
+      pnpm install --frozen-lockfile
+      pnpm --filter frontend build
+
     startCommand: |
-      pnpm start -- -p $PORT
+      pnpm --filter frontend start -- -p $PORT
+
     envVars:
       - key: NODE_ENV
         value: production
-      - key: PORT
-        value: 10000
       - key: NEXTAUTH_SECRET
         generateValue: true
       - key: NEXTAUTH_URL
         value: https://todo-frontend-8l7g.onrender.com
       - key: AUTH_TRUST_HOST
-        value: true
+        value: "true"
       - key: NEXT_PUBLIC_API_BASE_URL
         value: https://todo-api-p1zd.onrender.com

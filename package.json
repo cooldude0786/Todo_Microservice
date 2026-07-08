@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "private": true,
+  "node": "v22.22.2",
   "scripts": {
     "build": "turbo run build",
     "dev": "concurrently \"pnpm --filter api-gateway dev\" \"pnpm --filter frontend dev\" \"pnpm --filter ai-service dev\"",

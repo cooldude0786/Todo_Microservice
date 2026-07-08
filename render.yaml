@@ -26,13 +26,12 @@ services:
     name: todo-frontend
     env: node
     plan: free
-
+    
     buildCommand: |
-      pnpm install --frozen-lockfile
-      pnpm --dir apps/frontend build
+      cd apps/frontend && pnpm install --frozen-lockfile && pnpm build
 
     startCommand: |
-      pnpm --dir apps/frontend start -- -p $PORT
+      cd apps/frontend && pnpm start -- -p $PORT
 
     envVars:
       - key: NODE_ENV
